@@ -1,8 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import {HashRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Upload from './pages/Upload'
+import Header from './components/Header'
+
+import './App.css'
+
+
+
+
+const App = () => {
+  return (
+    <HashRouter>
+      <Header />
+      <Routes>
+      <Route path='/upload' element={<Upload/>} />
+      <Route path='/' element={<Home/>} />
+      </Routes>
+    </HashRouter>
+  );
+}
+
+export default App
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +34,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
